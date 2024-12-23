@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,12 @@ class HomePage extends StatelessWidget {
             child: Container(
               color: Colors.pink,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  player.setSourceAsset("audios/note1.wav");
+                  player.play(
+                    AssetSource("audios/note1.wav"),
+                  );
+                },
                 child: Text(""),
               ),
             ),
